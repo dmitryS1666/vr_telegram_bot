@@ -16,9 +16,7 @@ extend Vremonte
 
 telegram_token = '580514110:AAGjF6HFkOVIgvUhWA3bV1lYwX9iVaJAsrM'
 
-def send_response(bot, message, type_menu, number_next_step)
-  initialization_operation
-  initialization_type_operation
+def send_response(bot, message, type_menu)
   track message
 
   markup = create_menu(type_menu)
@@ -38,22 +36,22 @@ Telegram::Bot::Client.run(telegram_token) do |bot|
 
     case message.text.to_s
       when '/start'
-        send_response bot, message, 'start', nil
+        send_response(bot, message, 'start')
 
-      when /Nazad/
-        send_response bot, message, 'start', nil
+      when /Back/
+        send_response(bot, message, 'start')
 
       when '1. Show me all auto services.'
-        send_response bot, message, 'show_auto_service', nil
+        send_response(bot, message, 'show_auto_service')
 
       when '2. Search auto service by name.'
-        send_response bot, message, 'search_by_name', nil
+        send_response(bot, message, 'search_by_name')
 
       when '3. Create request for auto services.'
-        send_response bot, message, 'create_request', nil
+        send_response(bot, message, 'create_request')
 
       else
-        prepare_response bot, message
+        prepare_response(bot, message)
     end
   end
 end

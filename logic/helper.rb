@@ -5,7 +5,7 @@ module Helper
 
   def create_menu(type_menu)
     case type_menu
-      when 'Hi'
+      when 'start'
         kb = ['1. Show me all auto services.', '2. Search auto service by name.', '3. Create request for auto services']
         markup = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: kb, resize_keyboard: true)
 
